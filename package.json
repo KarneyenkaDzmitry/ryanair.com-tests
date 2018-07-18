@@ -1,0 +1,19 @@
+{
+  "name": "ryanair.com-tests",
+  "version": "1.0.0",
+  "description": "tests with cucumber, protractor, page-objects, chai",
+  "main": "conf.js",
+  "scripts": {
+    "test": "node node_modules/.bin/cucumber-js ./features -r ./features/step_definitions/",
+    "postinstall": "mk dir resources",
+    "start": "protractor conf.js"
+  },
+  "author": "Dzmitry_Karneyenka",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "cucumber": "^4.2.1",
+    "protractor": "^5.3.2",
+    "protractor-cucumber-framework": "^6.0.0"
+  }
+}
