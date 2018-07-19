@@ -15,11 +15,14 @@ exports.config = {
   specs: ['./features/*.feature'],
   baseURL: 'http://localhost:8080/',
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'chromeOptions': {
+    
+    }
   },
   onPrepare: function () {
     browser.driver.manage().window().maximize();
     browser.driver.manage().timeouts().implicitlyWait(20000);
-    //browser.waitFotAngularEnabled(true);
+    //browser.waitForAngularEnabled(true);
   }
 }
