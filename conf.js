@@ -20,5 +20,6 @@ exports.config = {
   onPrepare: function () {
     browser.driver.manage().window().maximize();
     browser.driver.manage().timeouts().implicitlyWait(20000);
+    //browser.waitFotAngularEnabled(true);
   }
 }
