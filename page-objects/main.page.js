@@ -8,7 +8,7 @@ class FlightsService {
         this.toAirport = $('input[aria-labelledby*=-to]');
         this.flyOutDate = $('*[label=\'Fly out:\']');
         this.flyBackDate = $('*[label=\'Fly back:\']');
-        this.mainButton = $('*[role=button][ng-show=extend]');
+        this.mainButton = $('button[role=button][ng-show=extend]');
     }
 
     fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers) {
@@ -18,9 +18,9 @@ class FlightsService {
                 .then(() => this.fromAirport.sendKeys(from_airport))
                 .then(() => this.toAirport.sendKeys(to_airport))
                 .then(() => this.toAirport.sendKeys(protractor.Key.ENTER))
-                // .then(() => browser.driver.sleep(5000))
                 .then(() => this.fillFlyOutDate(fly_out))
                 .then(() => this.fillFlyBackDate(fly_back))
+                .then(() => browser.driver.sleep(5000))
                 .then(() => {
                     if (passengers === 'default') { this.mainButton.click(); }
                 });

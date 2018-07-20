@@ -37,13 +37,15 @@ When('I fill form for reason to buy {string} ticket from {string} '+
 });
 
 Then('I see the page with next step with entered before data at the left side of the top of page in order:'+
-'from {string} to {string} {string} {string}', { timeout: 20000 },
+'from {string} to {string} {string} {string}', { timeout: 25000 },
  function (from_airport, to_airport, ticket, passengers) {
-    return nextstep.getAirportsText()
+    return  browser.driver.getAllWindowHandles()
+    .then((handlers)=> console.log(handlers))//browser.driver.switchTo().window(handlers[1]))
+    .then(()=>nextstep.getAirportsText())
     .then((text)=>expect(text).to.be.equal(`${from_airport} to ${to_airport}`))
-    // .then(()=>{
-    //     if (passengers==='default') {
-    //         return nextstep.getBreakpointText()
-    //         .then((text)=>expect(text).to.be.equal(`${ticket}1 Adult`))
-    //     }});
+    .then(()=>{
+        if (passengers==='default') {
+            return nextstep.getBreakpointText()
+            .then((text)=>expect(text).to.be.equal(`${ticket}1 Adult`))
+        }});
 });

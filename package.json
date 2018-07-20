@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node node_modules/.bin/cucumber-js ./features -r ./features/step_definitions/",
     "postinstall": "mk dir resources",
-    "start": "protractor conf.js"
+    "start": "protractor conf.js --disableChecks 300"
   },
   "author": "Dzmitry_Karneyenka",
   "license": "ISC",

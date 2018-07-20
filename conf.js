@@ -17,12 +17,12 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {
-    
+      'args': ['disable-infobars']
     }
   },
   onPrepare: function () {
     browser.driver.manage().window().maximize();
     browser.driver.manage().timeouts().implicitlyWait(20000);
-    //browser.waitForAngularEnabled(true);
+    browser.waitForAngularEnabled(true);
   }
 }

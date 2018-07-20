@@ -1,7 +1,7 @@
 'use strict';
 class NextStep {
     constructor() {
-        this.fromToText = $('h1 translate');
+        this.fromToText = $('.starting-point');
         this.breakpoint = $('.passenger-breakdown');
     }
 
