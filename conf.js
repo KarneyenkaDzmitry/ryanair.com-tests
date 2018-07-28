@@ -24,5 +24,7 @@ exports.config = {
     browser.driver.manage().window().maximize();
     browser.driver.manage().timeouts().implicitlyWait(20000);
     browser.waitForAngularEnabled(true);
+    global.ec = protractor.ExpectedConditions;
   }
+
 }

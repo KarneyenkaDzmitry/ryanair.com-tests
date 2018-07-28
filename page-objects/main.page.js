@@ -20,7 +20,7 @@ class FlightsService {
                 .then(() => this.toAirport.sendKeys(protractor.Key.ENTER))
                 .then(() => this.fillFlyOutDate(fly_out))
                 .then(() => this.fillFlyBackDate(fly_back))
-                .then(() => browser.driver.sleep(5000))
+                .then(() => browser.wait(ec.elementToBeClickable(this.mainButton)), 5000)
                 .then(() => {
                     if (passengers === 'default') { this.mainButton.click(); }
                 });

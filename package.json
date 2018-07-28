@@ -5,7 +5,7 @@
   "main": "conf.js",
   "scripts": {
     "test": "node node_modules/.bin/cucumber-js ./features -r ./features/step_definitions/",
-    "postinstall": "mk dir resources",
+    "postinstall": "mkdir resources",
     "start": "protractor conf.js --disableChecks 300"
   },
   "author": "Dzmitry_Karneyenka",
@@ -13,7 +13,7 @@
   "dependencies": {
     "chai": "^4.1.2",
     "cucumber": "^4.2.1",
-    "protractor": "^5.3.2",
+    "protractor": "^5.4.0",
     "protractor-cucumber-framework": "^6.0.0"
   }
 }
