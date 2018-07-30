@@ -6,13 +6,15 @@ exports.config = {
     getPageTimeout: 60000,
     allScriptsTimeout: 500000,
     framework: 'custom',
+    ignoreUncaughtExceptions: true,
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
         "require": '../features/step_definitions/*steps.js',
         "tags": false,
         "profile": false,
         'no-source': true,
-        format: 'json:./reports/report.json'
+        format: 'json:./reports/report.json',
+        ignoreUncaughtExceptions: true
     },
     specs: ['../features/*.feature'],
     baseURL: 'http://localhost:8080/',
