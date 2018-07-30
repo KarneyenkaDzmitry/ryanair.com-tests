@@ -1,5 +1,7 @@
 # My template of Dependencies
 resources/
+logs/
+reports/
 *.exe
 *.bat
 *.jar
