@@ -4,7 +4,7 @@ Feature: Tests of ryanair.com
   Given I open url 'https://www.ryanair.com/gb/en/'
 
  Scenario: Can choose a language at the top of page and the page becomes in the choosed language
-   Then The url is 'https://www.ryanair.com/gb/en/'
+   Then The expected url is 'https://www.ryanair.com/gb/en/'
     And I see the text 'Sign up', 'Log in' at the header
     And the button with text 'Continue'  
    When I choose country 'Germany'

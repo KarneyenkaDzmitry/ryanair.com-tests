@@ -15,17 +15,18 @@ Given(/^I open url '([^']*)'$/, function (url) {
     });
 });
 
-Then(/^The url is '([^']*)'$/, function (string) {
-    logger.info(`The url is ${string}`);
+Then(/^The expected url is '([^']*)'$/, function (string) {
+    logger.info(`The expected url is ${string}`);
     return browser.getCurrentUrl()
         .then((url) => expect(url).to.be.equal(string))
         .catch((err) => {
-            logger.error(`EROOR in : The url is [${string}] - [${err}]`);
+            logger.error(`EROOR in : The expected url is [${string}] - [${err}]`);
             return err;
         });
 });
 
 Then(/^I see the text '([^']*)', '([^']*)' at the header$/, function (singin, login) {
+    logger.info(`I see the text [${singin}], [${login}] at the header`);
     header.getSigninText()
         .then((text) => expect(text).to.be.equal(singin));
     return header.getLoginText()
@@ -33,21 +34,25 @@ Then(/^I see the text '([^']*)', '([^']*)' at the header$/, function (singin, lo
 });
 
 Then(/^the button with text '([^']*)'$/, function (button) {
+    logger.info(`the button with text  [${button}]`);
     return header.getMainButtonText()
         .then((text) => expect(text).to.be.equal(button));
 });
 
 When(/^I choose country '([^']*)'$/, function (country) {
+    logger.info(`I choose country [${country}]`);
     return header.chooseLanguage(country);
 });
 
 When(/^I fill form for reason to buy '([^']*)' ticket from '([^']*)' to '([^']*)',out date '([^']*)', back date '([^']*)' for '([^']*)' passengers$/,
     function (ticket, from_airport, to_airport, fly_out, fly_back, passengers) {
+    logger.info(`I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`);
         return main.fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers);
     });
 
 Then(/^I see the page with next step with entered before data at the left side of the top of page in order:from '([^']*)' to '([^']*)' '([^']*)' '([^']*)'$/,
     function (from_airport, to_airport, ticket, passengers) {
+    logger.info(`I see the page with next step with entered before data at the left side of the top of page in order:from [${from_airport}] to [${to_airport}] [${ticket}] [${passengers}]`);
         return browser.driver.sleep(3000)
             .then(() => browser.driver.getAllWindowHandles())
             .then((handlers) => browser.driver.switchTo().window(handlers[1]))
@@ -58,5 +63,9 @@ Then(/^I see the page with next step with entered before data at the left side o
                     return nextstep.getBreakpointText()
                         .then((text) => expect(text).to.be.equal(`${ticket} 1 Adult Change`))
                 }
+            })
+            .catch((err) => {
+                logger.error(`EROOR in : I see the page with next step with entered before data at the left side of the top of page in order:from - [${err}]`);
+                return err;
             });
     });
