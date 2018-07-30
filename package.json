@@ -30,6 +30,7 @@
   "devDependencies": {
     "eslint": "^5.2.0",
     "gulp-shell": "^0.6.5",
+    "run-sequence": "^2.2.1",
     "winston": "^3.0.0"
   }
 }
