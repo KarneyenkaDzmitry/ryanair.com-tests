@@ -25,9 +25,9 @@ class FlightsService {
                 .then(() => {
                     if (passengers === 'default') {
                         this.mainButton.click()
-                            .catch((error) => logger.error(`ERROR in : I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`, error));
                     }
-                });
+                })
+                .catch((error) => logger.error(`ERROR in : I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`, error));
 
 
         } else {

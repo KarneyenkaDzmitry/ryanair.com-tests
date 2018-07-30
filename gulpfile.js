@@ -1,5 +1,5 @@
 'use strict';
-
+const { logger } = require('./configs/logger.conf');
 const gulp = require('gulp');
 const shell = require('gulp-shell');
 const runSequence = require('run-sequence').use(gulp);
@@ -12,7 +12,7 @@ gulp.task('start', ['server'], () => {
             args: ['--baseUrl', 'http://127.0.0.1:8000']
         }))
         .on('error', (err) => {
-            throw err;
+            logger.error('Protactor error', err);
         });
 });
 

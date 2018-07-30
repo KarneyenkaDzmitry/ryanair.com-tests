@@ -6,6 +6,8 @@ const options = {
     jsonFile: './reports/report.json',
     output: './reports/cucumber_report.html',
     reportSuiteAsScenarios: true,
+    storeScreenshots: true,
+    screenshotsDirectory :'./reports/screenshots/', 
     launchReport: true
 };
 

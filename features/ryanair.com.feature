@@ -10,7 +10,7 @@ Feature: Tests of ryanair.com
    When I choose country 'Germany'
    Then The expected url is 'https://www.ryanair.com/de/de/'
     And I see the text 'Registrieren', 'Einloggen' at the header
-    And the button with text 'Fortfahren' 
+    And the button with text 'Fortfahren1' 
   
  Scenario Outline: booking flight tickets servise
    When I fill form for reason to buy '<ticket>' ticket from '<from_airport>' to '<to_airport>',out date '<fly_out>', back date '<fly_back>' for '<passengers>' passengers

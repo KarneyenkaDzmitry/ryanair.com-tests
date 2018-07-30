@@ -5,9 +5,9 @@
   "main": "conf.js",
   "scripts": {
     "test": "node node_modules/.bin/cucumber-js ./features -r ./features/step_definitions/",
-    "preinstall": "mkdir logs reports",
+    "preinstall": "mkdir logs reports/screenshots",
     "postinstall": "./node_modules/.bin/webdriver-manager update",
-    "prestart": "del /f combined.log, error.log",
+    "prestart": "del /f .\\logs\\combined.log, .\\logs\\error.log",
     "start": "protractor ./configs/conf.js --disableChecks 300",
     "gulp": "node ./node_modules/gulp/bin/gulp.js",
     "poststart": "node reporter.js",

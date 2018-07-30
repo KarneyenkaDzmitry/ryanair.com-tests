@@ -66,7 +66,6 @@ Then(/^I see the page with next step with entered before data at the left side o
                 }
             })
             .catch((err) => {
-                logger.error(`EROOR in : I see the page with next step with entered before data at the left side of the top of page in order:from - [${err}]`);
-                return err;
+                logger.error(`ERROR in : I see the page with next step with entered before data at the left side of the top of page in order:from - [${err}]`);
             });
     });

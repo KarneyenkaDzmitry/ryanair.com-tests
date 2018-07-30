@@ -9,12 +9,13 @@ exports.config = {
     ignoreUncaughtExceptions: true,
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        "require": '../features/step_definitions/*steps.js',
+        "require": ['../features/step_definitions/*steps.js','../features/step_definitions/hooks.js'],
         "tags": false,
         "profile": false,
         'no-source': true,
         "format": 'json:./reports/report.json',
         "ignoreUncaughtExceptions": true
+        //   tags: ['~@wip', '~@manual']
     },
     specs: ['../features/*.feature'],
     baseURL: 'http://localhost:8080/',
