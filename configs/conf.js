@@ -11,7 +11,8 @@ exports.config = {
         "require": '../features/step_definitions/*steps.js',
         "tags": false,
         "profile": false,
-        'no-source': true
+        'no-source': true,
+        format: 'json:./reports/report.json'
     },
     specs: ['../features/*.feature'],
     baseURL: 'http://localhost:8080/',

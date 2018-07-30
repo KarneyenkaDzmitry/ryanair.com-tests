@@ -5,9 +5,10 @@
   "main": "conf.js",
   "scripts": {
     "test": "node node_modules/.bin/cucumber-js ./features -r ./features/step_definitions/",
-    "preinstall": "mkdir logs",
+    "preinstall": "mkdir logs reports",
     "postinstall": "./node_modules/.bin/webdriver-manager update",
     "start": "protractor ./configs/conf.js --disableChecks 300",
+    "poststart": "node reporter.js",
     "lint": "eslint ./ --fix",
     "wd-up": "./node_modules/.bin/webdriver-manager update",
     "wd-st": "./node_modules/.bin/webdriver-manager start"
@@ -17,6 +18,7 @@
   "dependencies": {
     "chai": "^4.1.2",
     "cucumber": "^4.2.1",
+    "cucumber-html-reporter": "^4.0.3",
     "protractor": "^5.4.0",
     "protractor-cucumber-framework": "^6.0.0"
   },
