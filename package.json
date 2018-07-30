@@ -21,14 +21,14 @@
     "chai": "^4.1.2",
     "cucumber": "^4.2.1",
     "cucumber-html-reporter": "^4.0.3",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-protractor": "^4.1.0",
     "protractor": "^5.4.0",
     "protractor-cucumber-framework": "^6.0.0"
   },
   "devDependencies": {
     "eslint": "^5.2.0",
-    "gulp": "^3.9.1",
-    "gulp-cli": "^2.0.1",
-    "gulp-protractor": "^4.1.0",
     "gulp-shell": "^0.6.5",
     "winston": "^3.0.0"
   }
