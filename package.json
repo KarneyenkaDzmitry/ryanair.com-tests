@@ -7,6 +7,7 @@
     "test": "node node_modules/.bin/cucumber-js ./features -r ./features/step_definitions/",
     "preinstall": "mkdir logs reports",
     "postinstall": "./node_modules/.bin/webdriver-manager update",
+    "prestart": "del /f combined.log, error.log",
     "start": "protractor ./configs/conf.js --disableChecks 300",
     "poststart": "node reporter.js",
     "lint": "eslint ./ --fix",

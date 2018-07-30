@@ -47,7 +47,8 @@ When(/^I choose country '([^']*)'$/, function(country) {
 When(/^I fill form for reason to buy '([^']*)' ticket from '([^']*)' to '([^']*)',out date '([^']*)', back date '([^']*)' for '([^']*)' passengers$/,
     function(ticket, from_airport, to_airport, fly_out, fly_back, passengers) {
         logger.info(`I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`);
-        return main.fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers);
+        return main.fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers)
+        .catch((error)=>logger.info(`ERROR in : I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`, error));
     });
 
 Then(/^I see the page with next step with entered before data at the left side of the top of page in order:from '([^']*)' to '([^']*)' '([^']*)' '([^']*)'$/,
