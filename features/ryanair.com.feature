@@ -8,7 +8,7 @@ Feature: Tests of ryanair.com
     And I see the text 'Sign up', 'Log in' at the header
     And the button with text 'Continue'  
    When I choose country 'Germany'
-   Then The url is 'https://www.ryanair.com/de/de/'
+   Then The expected url is 'https://www.ryanair.com/de/de/'
     And I see the text 'Registrieren', 'Einloggen' at the header
     And the button with text 'Fortfahren' 
   
