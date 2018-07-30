@@ -1,7 +1,7 @@
 'use strict';
 
 class Header {
-    
+
     constructor() {
         this.language = $('#markets');
         this.signin = $('*[ui-sref=register]');
@@ -10,12 +10,12 @@ class Header {
     }
 
     getHeaderArray() {
-        return  $$('.username').map(elm =>elm.getText());
+        return $$('.username').map(elm => elm.getText());
     }
 
     chooseLanguage(country) {
         return this.language.click()
-            .then(() => element(by.xpath(`//*[text()=\'${country} \']`)))
+            .then(() => element(by.xpath(`//*[text()='${country} ']`)))
             .then((element) => element.click());
     }
 
@@ -24,11 +24,11 @@ class Header {
     }
 
     getLoginText() {
-        return this.getHeaderArray().then((array)=>array[1]);
+        return this.getHeaderArray().then((array) => array[1]);
     }
 
-     getSigninText() {
-        return this.getHeaderArray().then((array)=>array[0]);
+    getSigninText() {
+        return this.getHeaderArray().then((array) => array[0]);
     }
 }
 

@@ -8,6 +8,7 @@
     "preinstall": "mkdir logs",
     "postinstall": "./node_modules/.bin/webdriver-manager update",
     "start": "protractor ./configs/conf.js --disableChecks 300",
+    "lint": "eslint ./ --fix",
     "wd-up": "./node_modules/.bin/webdriver-manager update",
     "wd-st": "./node_modules/.bin/webdriver-manager start"
   },
@@ -20,6 +21,7 @@
     "protractor-cucumber-framework": "^6.0.0"
   },
   "devDependencies": {
+    "eslint": "^5.2.0",
     "winston": "^3.0.0"
   }
 }
