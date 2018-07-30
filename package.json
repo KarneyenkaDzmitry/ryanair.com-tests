@@ -9,6 +9,7 @@
     "postinstall": "./node_modules/.bin/webdriver-manager update",
     "prestart": "del /f combined.log, error.log",
     "start": "protractor ./configs/conf.js --disableChecks 300",
+    "gulp": "node ./node_modules/gulp/bin/gulp.js",
     "poststart": "node reporter.js",
     "lint": "eslint ./ --fix",
     "wd-up": "./node_modules/.bin/webdriver-manager update",
@@ -25,6 +26,10 @@
   },
   "devDependencies": {
     "eslint": "^5.2.0",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-protractor": "^4.1.0",
+    "gulp-shell": "^0.6.5",
     "winston": "^3.0.0"
   }
 }

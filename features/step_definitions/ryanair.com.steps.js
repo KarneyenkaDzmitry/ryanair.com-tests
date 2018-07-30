@@ -20,7 +20,7 @@ Then(/^The expected url is '([^']*)'$/, function(string) {
     return browser.getCurrentUrl()
         .then((url) => expect(url).to.be.equal(string))
         .catch((err) => {
-            logger.error(`EROOR in : The expected url is [${string}] - [${err}]`);
+            logger.error(`ERROR in : The expected url is [${string}] - [${err}]`);
             return err;
         });
 });
@@ -48,7 +48,7 @@ When(/^I fill form for reason to buy '([^']*)' ticket from '([^']*)' to '([^']*)
     function(ticket, from_airport, to_airport, fly_out, fly_back, passengers) {
         logger.info(`I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`);
         return main.fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers)
-        .catch((error)=>logger.error(`ERROR in : I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`, error));
+            .catch((error) => logger.error(`ERROR in : I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`, error));
     });
 
 Then(/^I see the page with next step with entered before data at the left side of the top of page in order:from '([^']*)' to '([^']*)' '([^']*)' '([^']*)'$/,
