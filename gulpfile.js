@@ -14,6 +14,7 @@ gulp.task('start', ['server'], () => {
         .on('error', (err) => {
             logger.error('Protactor error', err);
         });
+        
 });
 
 gulp.task('server', (done) => {

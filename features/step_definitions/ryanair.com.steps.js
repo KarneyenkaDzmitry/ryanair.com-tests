@@ -9,20 +9,13 @@ setDefaultTimeout(20 * 5000);
 
 Given(/^I open url '([^']*)'$/, function(url) {
     logger.info(`I open url ${url}`);
-    return browser.get(url).catch((err) => {
-        logger.error(`EROOR in : I open url ${url} - [${err}]`);
-        return err;
-    });
+    return browser.get(url);
 });
 
 Then(/^The expected url is '([^']*)'$/, function(string) {
     logger.info(`The expected url is ${string}`);
     return browser.getCurrentUrl()
-        .then((url) => expect(url).to.be.equal(string))
-        .catch((err) => {
-            logger.error(`ERROR in : The expected url is [${string}] - [${err}]`);
-            return err;
-        });
+        .then((url) => expect(url).to.be.equal(string));
 });
 
 Then(/^I see the text '([^']*)', '([^']*)' at the header$/, function(singin, login) {
@@ -47,8 +40,7 @@ When(/^I choose country '([^']*)'$/, function(country) {
 When(/^I fill form for reason to buy '([^']*)' ticket from '([^']*)' to '([^']*)',out date '([^']*)', back date '([^']*)' for '([^']*)' passengers$/,
     function(ticket, from_airport, to_airport, fly_out, fly_back, passengers) {
         logger.info(`I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`);
-        return main.fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers)
-            .catch((error) => logger.error(`ERROR in : I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`, error));
+        return main.fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers);
     });
 
 Then(/^I see the page with next step with entered before data at the left side of the top of page in order:from '([^']*)' to '([^']*)' '([^']*)' '([^']*)'$/,
@@ -64,8 +56,5 @@ Then(/^I see the page with next step with entered before data at the left side o
                     return nextstep.getBreakpointText()
                         .then((text) => expect(text).to.be.equal(`${ticket} 1 Adult Change`));
                 }
-            })
-            .catch((err) => {
-                logger.error(`ERROR in : I see the page with next step with entered before data at the left side of the top of page in order:from - [${err}]`);
             });
     });
