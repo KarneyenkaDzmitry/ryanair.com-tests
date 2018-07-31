@@ -5,7 +5,7 @@ const shell = require('gulp-shell');
 const runSequence = require('run-sequence').use(gulp);
 const protractor = require("gulp-protractor").protractor;
 
-gulp.task('start', ['server'], () => {
+gulp.task('start', () => {
     logger.info('Run gulp, task - start');
     return gulp.src([])
         .pipe(protractor({
@@ -48,5 +48,5 @@ gulp.task('report', () => {
 
 gulp.task('default', () => {
     logger.info('Run via gulp task - default');
-    runSequence('start', 'report');
+    runSequence('server', 'start', 'report');
 });
