@@ -12,33 +12,33 @@ class FlightsService {
         this.mainButton = $('button[role=button][ng-show=extend]');
     }
 
-    fillMainForm(ticket, from_airport, to_airport, fly_out, fly_back, passengers) {
+    fillMainForm(ticket, fromAirport, toAirport, flyOut, flyBack, passengers) {
         if (ticket === 'Return') {
             return this.returnTicket.click()
                 .then(() => this.fromAirport.clear())
-                .then(() => this.fromAirport.sendKeys(from_airport))
-                .then(() => this.toAirport.sendKeys(to_airport))
+                .then(() => this.fromAirport.sendKeys(fromAirport))
+                .then(() => this.toAirport.sendKeys(toAirport))
                 .then(() => this.toAirport.sendKeys(protractor.Key.ENTER))
-                .then(() => this.fillFlyOutDate(fly_out))
-                .then(() => this.fillFlyBackDate(fly_back))
+                .then(() => this.fillFlyOutDate(flyOut))
+                .then(() => this.fillFlyBackDate(flyBack))
                 .then(() => browser.wait(ec.elementToBeClickable(this.mainButton)), 5000)
                 .then(() => {
                     if (passengers === 'default') {
-                        this.mainButton.click()
+                        this.mainButton.click();
                     }
                 })
-                .catch((error) => logger.error(`ERROR in : I fill form for reason to buy [${ticket}] ticket from [${from_airport}] to [${to_airport}],out date [${fly_out}], back date [${fly_back}] for [${passengers}] passengers`, error));
+                .catch((error) => logger.error(`ERROR in filling form. Data: [${ticket}, ${fromAirport}, ${toAirport}, ${flyOut}, ${flyBack}, ${passengers}]`, error));
 
 
         } else {
             return this.oneWayTicket.click()
                 .then(() => this.fromAirport.clear())
-                .then(() => this.fromAirport.sendKeys(from_airport))
-                .then(() => this.toAirport.sendKeys(to_airport))
+                .then(() => this.fromAirport.sendKeys(fromAirport))
+                .then(() => this.toAirport.sendKeys(toAirport))
                 .then(() => this.toAirport.sendKeys(protractor.Key.ENTER))
-            // .then(() => browser.driver.sleep(5000))
-                .then(() => this.fillFlyOutDate(fly_out))
-            // .then(() => this.fillFlyBackDate(fly_back))
+                .then(() => browser.driver.sleep(5000))
+                .then(() => this.fillFlyOutDate(flyOut))
+                .then(() => this.fillFlyBackDate(flyBack))
                 .then(() => {
                     if (passengers === 'default') {
                         this.mainButton.click();
@@ -47,15 +47,15 @@ class FlightsService {
         }
     }
 
-    fillFlyOutDate(fly_out) {
-        const date = JSON.parse(fly_out).date;
+    fillFlyOutDate(flyOut) {
+        const date = JSON.parse(flyOut).date;
         return $$('input[class*=date-input][aria-label*="Fly out:"]').map((elem, ind) => {
             return elem.clear().then(() => elem.sendKeys(date[ind]));
         });
     }
 
-    fillFlyBackDate(fly_back) {
-        const date = JSON.parse(fly_back).date;
+    fillFlyBackDate(flyBack) {
+        const date = JSON.parse(flyBack).date;
         return $$('input[class*=date-input][aria-label*="Fly back:"]').map((elem, ind) => {
             return elem.clear().then(() => elem.sendKeys(date[ind]));
         });

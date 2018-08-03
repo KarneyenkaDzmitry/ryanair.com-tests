@@ -9,7 +9,7 @@ exports.config = {
     ignoreUncaughtExceptions: true,
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        "require": ['../features/step_definitions/*steps.js','../features/step_definitions/hooks.js'],
+        "require": ['../features/step_definitions/*steps.js', '../features/step_definitions/hooks.js'],
         "tags": false,
         "profile": false,
         'no-source': true,
@@ -25,7 +25,7 @@ exports.config = {
             args: ['disable-infobars']
         }
     },
-    onPrepare: function() {
+    onPrepare: () => {
         logger.info('Browser starts in maximize size for running tests');
         browser.driver.manage().window().maximize();
         browser.driver.manage().timeouts().implicitlyWait(20000);

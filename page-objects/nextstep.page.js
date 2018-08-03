@@ -7,7 +7,7 @@ class NextStep {
 
     getAirportsText() {
         return browser.wait(ec.visibilityOf(this.fromToText))
-        .then(()=>this.fromToText.getText());
+            .then(() => this.fromToText.getText());
     }
     getBreakpointText() {
         return this.breakpoint.getText();

@@ -7,7 +7,7 @@ const options = {
     output: './reports/cucumber_report.html',
     reportSuiteAsScenarios: true,
     storeScreenshots: true,
-    screenshotsDirectory :'./reports/screenshots/', 
+    screenshotsDirectory: './reports/screenshots/',
     launchReport: true
 };
 
