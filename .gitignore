@@ -5,6 +5,7 @@ reports/
 *.exe
 *.bat
 *.jar
+*.idea/
 README.md
 # There are dependencies from github template for JavaScript
 # Dependency directories

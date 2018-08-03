@@ -5,7 +5,7 @@
   "main": "conf.js",
   "scripts": {
     "test": "node node_modules/.bin/cucumber-js ./features -r ./features/step_definitions/",
-    "preinstall": "mkdir logs reports/screenshots",
+    "preinstall": "mkdir logs reports\\screenshots",
     "postinstall": "./node_modules/.bin/webdriver-manager update",
     "prestart": "del /f .\\logs\\combined.log, .\\logs\\error.log",
     "start": "protractor ./configs/conf.js --disableChecks 300",
