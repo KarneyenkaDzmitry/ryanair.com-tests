@@ -23,7 +23,7 @@ There is a list of modules and their versions:
     "cucumber-html-reporter": "^4.0.3",
     "protractor": "^5.4.0",
     "protractor-cucumber-framework": "^6.0.0",
-     "eslint": "^5.2.0",
+    "eslint": "^5.2.0",
     "winston": "^3.0.0"
 
 ## Usage
